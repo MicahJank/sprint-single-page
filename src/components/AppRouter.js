@@ -6,6 +6,7 @@ import WelcomePage from './WelcomePage.js';
 import CharacterList from './CharacterList.js';
 import LocationList from './LocationsList.js';
 import EpisodeList from './EpisodeList.js';
+import SearchForm from './SearchForm.js';
 
 const AppRouter = () => {
 

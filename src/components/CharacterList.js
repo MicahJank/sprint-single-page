@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+
+import SearchForm from './SearchForm.js';
 import CharacterCard from './CharacterCard.js';
 import Axios from "axios";
 
@@ -25,11 +27,14 @@ export default function CharacterList() {
     return (<h2>Loading Characters...</h2>)
   } else {
     return (
+      <>
+      <SearchForm setCharacters={setCharacters}/>
       <section className="character-list grid-view">
         {characters.map(character => {
           return (<CharacterCard key={character.id} image={character.image} name={character.name} species={character.species} status={character.status} location={character.location.name} origin={character.origin.name} episodes={character.episode}/>)
         })}
       </section>
+      </>
     );
   }
 }
