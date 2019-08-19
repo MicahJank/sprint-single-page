@@ -12,8 +12,8 @@ export default function CharacterList() {
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     Axios.get('https://rickandmortyapi.com/api/character/')
       .then(apiObject => {
-        console.log(apiObject);
-        
+        console.log(apiObject.data.results);
+        setCharacters(apiObject.data.results);
       })
       .catch(err => {
         alert(err);
@@ -26,7 +26,9 @@ export default function CharacterList() {
   } else {
     return (
       <section className="character-list grid-view">
-        <h2>TODO: `array.map()` over your state here!</h2>
+        {characters.map(character => {
+          return (<CharacterCard />)
+        })}
       </section>
     );
   }
