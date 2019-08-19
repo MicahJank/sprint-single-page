@@ -7,15 +7,9 @@ import { stat } from "fs";
  function SearchForm({ errors, touched, values, status, setCharacters }) {
   // TODO: Add stateful logic for query/form data
 
-  const [searchCharacter, setSearchCharacter] = useState('');
-
   useEffect(() => {
-    console.log('Status: ', status);
-    console.log('values.search ', values.search);
-    setSearchCharacter(values.search);
     axios.get(`https://rickandmortyapi.com/api/character/?name=${values.search}`)
       .then(apiData => {
-        console.log('apiData: ', apiData);
         setCharacters(apiData.data.results);
       })
       .catch(err => {
@@ -42,7 +36,6 @@ const formikHOC = withFormik({
   },
 
   handleSubmit(values, { setStatus }) {
-      console.log('values: ', values);
       setStatus(values.search);
      
   },
