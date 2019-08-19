@@ -15,6 +15,7 @@ export default function CharacterCard( { image, name, species, status, location,
       </Card.Meta>
       <Card.Description>
         Location: {location}
+        <br />
         Origin: {origin}
       </Card.Description>
     </Card.Content>
