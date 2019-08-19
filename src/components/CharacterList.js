@@ -12,7 +12,7 @@ export default function CharacterList() {
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     Axios.get('https://rickandmortyapi.com/api/character/')
       .then(apiObject => {
-        console.log(apiObject.data.results);
+        // console.log(apiObject.data.results);
         setCharacters(apiObject.data.results);
       })
       .catch(err => {

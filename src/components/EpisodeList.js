@@ -12,7 +12,8 @@ const EpisodeList = () => {
 
         Axios.get('https://rickandmortyapi.com/api/episode/')
             .then(apiData => {
-
+                console.log(apiData);
+                setEpisodes(apiData.data.results)
             })
             .catch(err => {
                 alert(err);
@@ -23,7 +24,13 @@ const EpisodeList = () => {
         return (<h2>Loading Episodes</h2>)
     } else {
         return (
-            <div>EpisodeList here</div>
+            <section className="character-list grid-view"> 
+                {episodes.map(episode => {
+                    return (<EpisodeCard key={episode.id} name={episode.name} episode={episode.episode} date={episode.air_date} characters={episode.characters} />);
+                })}
+            </section>
         );
     }
 };
+
+export default EpisodeList;
